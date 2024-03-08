@@ -31,7 +31,7 @@ Route::middleware([
 });
 
 Route::get('/products', function () {
-    return view('components.products');
+    return view('home');
 });
 
 Route::get('products/{product:slug}', function (Product $product) {

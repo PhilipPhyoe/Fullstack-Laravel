@@ -32,6 +32,12 @@
                     {{ $product->Vehicle->name }}
                 </a>
             </div>
+            <form method="POST" action="{{ url('addcart', $product->id) }}" class="flex flex-col gap-4 justify-start">
+                @csrf
+                <input type="number" value="1" min="1" name="quantity" class="p-2 border-blue-400" />
+                <input type="submin" value="Add to Cart"
+                    class="bg-blue-800 text-white font-semibold text-xl px-2 py-4 text-center cursor-pointer hover:bg-orange-500 rounded-md" />
+            </form>
         </div>
 
     </section>

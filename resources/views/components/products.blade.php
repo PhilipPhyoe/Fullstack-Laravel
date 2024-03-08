@@ -2,7 +2,6 @@
     @php
     $products = App\Models\Product::all();
     @endphp
-
     @foreach ($products as $product)
     <section class="m-8 flex flex-col gap-[3rem] w-[220px] h-auto">
 
