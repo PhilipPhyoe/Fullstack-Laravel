@@ -1,6 +1,7 @@
 <?php
 
-
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
@@ -34,7 +35,19 @@ Route::get('/products', function () {
 });
 
 Route::get('products/{product:slug}', function (Product $product) {
-    return view('livewire.product', [
+    return view('components.product', [
         'product' => $product
+    ]);
+});
+
+Route::get('categories/{category:slug}', function (Category $category) {
+    return view('products', [
+        'products' => $category->products
+    ]);
+});
+
+Route::get('brands/{brand:name}', function (Brand $brand) {
+    return view('products', [
+        'products' => $brand->products
     ]);
 });

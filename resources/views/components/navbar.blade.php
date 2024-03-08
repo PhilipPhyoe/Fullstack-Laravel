@@ -34,8 +34,14 @@
             @endauth
         </div>
     </div>
-    <ul>
-        @livewire('categories')
+    <ul class="text-lg font-semibold flex justify-center items-center gap-4">
+        @php
+        $categories = App\Models\Category::all();
+        @endphp
+        @foreach ( $categories as $category)
+        <li class="hover:bg-gray-400 rounded-md hover:text-white p-2">
+            <a href="/categories/{{ $category->slug }}">{{ $category->name }}</a>
+        </li>
+        @endforeach
     </ul>
-
 </section>

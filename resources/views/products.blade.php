@@ -1,8 +1,5 @@
 <x-layout>
     <div class="flex justify-start items-start gap-8 flex-wrap ml-4 mt-4 mb-4">
-        @php
-        $products = App\Models\Product::all();
-        @endphp
 
         @foreach ($products as $product)
         <section class="ml-4 mt-8 flex items-start flex-col">

@@ -1,6 +1,8 @@
-<div class="flex justify-start items-start gap-8 flex-wrap ml-4 mt-4 mb-4">
+<!DOCTYPE html>
+<html lang="en">
+<title>{{ $product->product_title }}</title>
 
-    @foreach ($this->products as $product)
+<x-layout>
     <section class="ml-4 mt-8 flex items-start flex-col">
         <h1 class="font-semibold text-2xl mb-4">
             <a href="/products/{{ $product->slug }}">
@@ -29,5 +31,6 @@
             </a>
         </div>
     </section>
-    @endforeach
-</div>
+</x-layout>
+
+</html>
