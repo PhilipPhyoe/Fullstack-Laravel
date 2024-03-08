@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +27,14 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+Route::get('/products', function () {
+    return view('components.products');
+});
+
+Route::get('products/{product:slug}', function (Product $product) {
+    return view('livewire.product', [
+        'product' => $product
+    ]);
 });

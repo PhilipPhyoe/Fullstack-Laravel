@@ -1,3 +1,3 @@
 <x-layout>
-    <x-products></x-products>
+    @livewire('products')
 </x-layout>
