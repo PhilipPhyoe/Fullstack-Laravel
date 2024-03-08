@@ -53,4 +53,5 @@
         </a>
         @endauth
     </div>
+
 </section>
