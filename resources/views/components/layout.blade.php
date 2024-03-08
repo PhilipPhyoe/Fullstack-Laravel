@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Automotive Stores') }}</title>
+    <title>Automotive Store</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -20,11 +20,9 @@
 </head>
 
 <body>
-    <x-navbar></x-navbar>
+    <x-navbar />
     <div>
         {{ $slot }}
     </div>
-    <x-footer>
-
-    </x-footer>
+    <x-footer />
 </body>
