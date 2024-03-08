@@ -5,7 +5,7 @@
 <x-layout>
     <section class="m-16 flex justify-center gap-16">
         <div class="w-[500px] h-[500px] flex justify-center items-center rounded-md shadow-md hover:scale-110">
-            <img class="w-full object-cover" src="/{{ $product->image_url }}" />
+            <img class="w-[400px] h-[400px] object-contain" src="/{{ $product->image_url }}" />
         </div>
         <div class="flex flex-col items-start gap-8">
             <h1 class="font-semibold text-2xl mb-4">
