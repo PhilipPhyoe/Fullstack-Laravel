@@ -17,7 +17,7 @@ class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
 
     public static function form(Form $form): Form
     {
@@ -60,23 +60,28 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('category_id')
+                Tables\Columns\TextColumn::make('Category.name')
+                    ->label('Product Category')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('brand_id')
+                Tables\Columns\TextColumn::make('Brand.name')
+                    ->label('Brand Name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image_url'),
+                Tables\Columns\ImageColumn::make('image_url')->searchable(),
                 Tables\Columns\TextColumn::make('description')
+                    ->label('Description')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('unit_price')
+                    ->label('Price')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('vehicle_id')
+                Tables\Columns\TextColumn::make('Vehicle.name')
+                    ->label('Suitable Vehicle')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
