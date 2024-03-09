@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -19,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/redirect', [HomeController::class, 'Redirect']);
 
 Route::middleware([
     'auth:sanctum',
@@ -51,3 +55,5 @@ Route::get('brands/{brand:name}', function (Brand $brand) {
         'products' => $brand->products
     ]);
 });
+
+Route::post('/addcart/{id}', [CartController::class, 'Add']);
