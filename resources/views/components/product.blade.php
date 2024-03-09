@@ -38,6 +38,11 @@
                 <input type="submit" value="Add to Cart"
                     class="bg-blue-800 text-white font-semibold text-xl px-2 py-4 text-center cursor-pointer hover:bg-orange-500 rounded-md" />
             </form>
+            @if (session()->has('message'))
+            <h4 class="text-lg font-semibold p-4">
+                {{ session()->get('message') }}
+            </h4>
+            @endif
         </div>
 
     </section>
