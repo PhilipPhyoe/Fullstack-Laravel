@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Models\Brand;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,3 +60,12 @@ Route::get('brands/{brand:name}', function (Brand $brand) {
 });
 
 Route::post('/addcart/{id}', [CartController::class, 'Add']);
+
+Route::get('carts/{user:name}', function (User $user) {
+
+    return view('carts', [
+        'carts' => $user->carts
+    ]);
+});
+
+Route::post('/order/{cart:id}', [OrderController::class, 'Add']);

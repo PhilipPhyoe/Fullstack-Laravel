@@ -14,6 +14,15 @@
         </div>
         <div class="flex gap-5 justify-between items-center">
             @auth
+            @php
+            $user = auth()->user();
+            $count = App\Models\Cart::where('email', $user->email)->count();
+            @endphp
+            <ul class="text-md font-semibold flex justify-between items-center gap-2">
+                <li class="hover:bg-gray-400 rounded-md hover:text-white p-2 cursor-pointer">
+                    <a href="/carts/{{ $user->name }}">Cart [{{ $count }}]</a>
+                </li>
+            </ul>
             <span class="hover:text-red-800">Welcome, {{ auth()->user()->name }}!</span>
             <form method="POST" action="/logout">
                 @csrf

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +18,7 @@ class CartController extends Controller
 
             $cart = new Cart();
             $product = Product::find($id);
-
+            $cart->user_id = $user->id;
             $cart->name = $user->name;
             $cart->email = $user->email;
             $cart->title = $product->name;
