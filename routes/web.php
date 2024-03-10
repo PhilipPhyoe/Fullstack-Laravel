@@ -71,3 +71,10 @@ Route::get('carts/{user:name}', function (User $user) {
 });
 
 Route::post('/order/{cart:id}', [OrderController::class, 'Add']);
+
+Route::get('orders/{user:name}', function (User $user) {
+
+    return view('orders', [
+        'orders' => $user->orders
+    ]);
+});
