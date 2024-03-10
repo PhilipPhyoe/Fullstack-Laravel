@@ -30,7 +30,7 @@
                     Log Out
                 </button>
             </form>
-            @if (auth()->user()->is_admin)
+            @if (auth()->user()->role == 'ADMIN')
             <a href="/admin">Dashboard</a>
             @endif
             @else
