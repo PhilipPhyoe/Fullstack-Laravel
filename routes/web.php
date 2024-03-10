@@ -61,6 +61,8 @@ Route::get('brands/{brand:name}', function (Brand $brand) {
 
 Route::post('/addcart/{id}', [CartController::class, 'Add']);
 
+Route::post('/delete/{cart:id}', [CartController::class, 'Delete']);
+
 Route::get('carts/{user:name}', function (User $user) {
 
     return view('carts', [

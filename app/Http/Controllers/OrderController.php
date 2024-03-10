@@ -27,7 +27,8 @@ class OrderController extends Controller
             $order->product_quantity = $cart->quantity;
             $order->save();
 
-            return redirect()->back()->with('message', 'We receive your order successfully.');
+            $cart->delete();
+            return redirect()->back()->with('message', 'We receive your order successfully. Please check the order page for the detail.');
         } else {
             return redirect('login');
         }

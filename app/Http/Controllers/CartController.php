@@ -24,11 +24,19 @@ class CartController extends Controller
             $cart->title = $product->name;
             $cart->quantity = $request->quantity;
             $cart->price = $product->unit_price;
+            $cart->image = $product->image_url;
             $cart->save();
 
             return redirect()->back()->with('message', 'Product is added to the cart successfully.');
         } else {
             return redirect('login');
         }
+    }
+
+    public function Delete($id)
+    {
+        $data = Cart::find($id);
+        $data->delete();
+        return redirect()->back()->with('message', 'Product is removed from the cart successfully.');
     }
 }
